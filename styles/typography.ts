@@ -9,3 +9,7 @@ export const Body = styled.Text`
   font-family: 'ubuntu-regular';
   font-size: 16px;
 `;
+
+export const Headline = styled(Body)`
+  font-family: 'ubuntu-bold';
+`;
