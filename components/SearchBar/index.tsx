@@ -8,10 +8,11 @@ interface SearchBarProps {
   setSearchText: (text: string) => void;
   onFocus: () => void;
   onBlur: () => void;
+  onSubmit: () => void;
 }
 
 export const SearchBar = forwardRef<TextInput, SearchBarProps>(
-  ({ searchText, setSearchText, onFocus, onBlur }, ref) => {
+  ({ searchText, setSearchText, onFocus, onBlur, onSubmit }, ref) => {
     return (
       <Container
         style={{
@@ -35,7 +36,7 @@ export const SearchBar = forwardRef<TextInput, SearchBarProps>(
           onBlur={onBlur}
         />
 
-        <SearchButton>
+        <SearchButton onPress={onSubmit}>
           <SearchIcon name='search-outline' size={32} />
         </SearchButton>
       </Container>
