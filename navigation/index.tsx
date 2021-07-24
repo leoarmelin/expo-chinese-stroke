@@ -3,8 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import TabOneScreen from '../screens/SearchScreen';
+import TabTwoScreen from '../screens/IdeogramScreen';
 import { RootStackParamList } from '../@types/types';
 import LinkingConfiguration from './LinkingConfiguration';
 
