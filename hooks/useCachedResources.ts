@@ -1,4 +1,3 @@
-import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
@@ -14,8 +13,10 @@ export default function useCachedResources() {
 
         // Load fonts
         await Font.loadAsync({
-          ...Ionicons.font,
           'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          'ubuntu-regular': require('../assets/fonts/Ubuntu-Regular.ttf'),
+          'ubuntu-medium': require('../assets/fonts/Ubuntu-Medium.ttf'),
+          'ubuntu-bold': require('../assets/fonts/Ubuntu-Bold.ttf'),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
