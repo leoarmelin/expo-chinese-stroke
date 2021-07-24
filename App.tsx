@@ -4,20 +4,22 @@ import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
+import { ThemeProvider } from 'styled-components';
+import { Theme } from './styles/theme';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
 
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <ThemeProvider theme={Theme}>
+          <Navigation />
+          <StatusBar />
+        </ThemeProvider>
       </SafeAreaProvider>
     );
   }
