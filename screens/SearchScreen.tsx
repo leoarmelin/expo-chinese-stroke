@@ -1,12 +1,14 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import React, { useState } from 'react';
-import { useRef } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Keyboard, BackHandler } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import { RootStackParamList } from '../@types/types';
+import { RootStackParamList } from '../@types/routes';
 import { SearchBar } from '../components/SearchBar';
 import { Container, BackgroundButton } from '../styles/Search';
+
+import { IStroke } from '../interfaces/IStroke';
+import { useFetch } from '../hooks/useFetch';
+import { IStrokeSearch } from '../interfaces/IStrokeSearch';
 
 export default function TabOneScreen({
   navigation,
@@ -14,6 +16,10 @@ export default function TabOneScreen({
   const inputRef = useRef<TextInput>();
   const [searchText, setSearchText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+
+  const { data: ideogramList } = useFetch<IStroke[]>(
+    searchText ? `/strokes/search?term=${searchText}` : null
+  );
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -23,18 +29,20 @@ export default function TabOneScreen({
     setIsFocused(false);
   };
 
-  const handleSubmit = () => {
-    navigation.navigate('Ideogram');
+  const handleSubmit = (ideogramSelected: IStrokeSearch) => {
+    navigation.navigate('Ideogram', { ideogram: ideogramSelected });
   };
 
   useEffect(() => {
     Keyboard.addListener('keyboardDidHide', () => {
       handleBlur();
+      // @ts-ignore
       inputRef.current?.blur();
     });
 
     Keyboard.removeListener('keyboardDidHide', () => {
       handleBlur();
+      // @ts-ignore
       inputRef.current?.blur();
     });
   }, []);
@@ -63,12 +71,14 @@ export default function TabOneScreen({
         onPress={() => Keyboard.dismiss()}
       >
         <SearchBar
+          // @ts-ignore
           ref={inputRef}
           searchText={searchText}
           setSearchText={setSearchText}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onSubmit={handleSubmit}
+          ideogramList={ideogramList}
         />
       </BackgroundButton>
     </Container>
