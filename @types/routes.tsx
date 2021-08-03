@@ -1,6 +1,10 @@
+import { IStrokeSearch } from '../interfaces/IStrokeSearch';
+
 export type RootStackParamList = {
   Search: undefined;
-  Ideogram: undefined;
+  Ideogram: {
+    ideogram: IStrokeSearch;
+  };
   NotFound: undefined;
 };
 
