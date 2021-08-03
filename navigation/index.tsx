@@ -5,7 +5,7 @@ import * as React from 'react';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/SearchScreen';
 import TabTwoScreen from '../screens/IdeogramScreen';
-import { RootStackParamList } from '../@types/types';
+import { RootStackParamList } from '../@types/routes';
 import LinkingConfiguration from './LinkingConfiguration';
 
 export default function Navigation() {
