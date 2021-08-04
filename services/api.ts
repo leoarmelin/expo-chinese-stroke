@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { LOCAL_URL } from '@env';
+import { API_URL } from '@env';
 
 export const api = axios.create({
-  baseURL: LOCAL_URL,
+  baseURL: API_URL,
 });
