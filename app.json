@@ -15,20 +15,20 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
+      "userInterfaceStyle": "light",
       "supportsTablet": false,
-      "bundleIdentifier": "com.yourcompany.yourappname",
+      "bundleIdentifier": "com.leoarmelin.easychinesestroke",
       "buildNumber": "1.0.0"
     },
     "android": {
+      "userInterfaceStyle": "light",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.leoarmelin.expochinesestroke",
+      "package": "com.leoarmelin.easychinesestroke",
       "versionCode": 1
     },
     "web": {
